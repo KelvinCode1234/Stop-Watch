@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/69b7050fd6.js" crossorigin="anonymous"></script>
+	    <title>Stop-Watch</title>
+    </head>
+    <body>
+        <div class="topic">The Stop-Watch, you Desire....!!!!</div>
+        <div class="container"><i class="fa-regular fa-clock"></i></div>
+        <div class="timer" id="timer">00:00:00</div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const timerElement = document.getElementById('timer');
+                let seconds = 0;
+                let minutes = 0;
+                let hours = 0;
+                function pad(number) {
+                    return (number < 10)? '0' + number : number;
+                }
+                function updateTimer() {
+                    seconds++;
+                    if (seconds === 60) {
+                        minutes++;
+                        seconds = 0;
+                    }
+                    if (minutes === 60) {
+                        hours++;
+                        minutes = 0;
+                    }
+                    timerElement.textContent = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+                }
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            });
+        </script>
+        <div>
+        <footer>
+            <p><i class="fa-regular fa-copyright"></i> 2024 Kelvin. | All right reserved</p>
+        </footer>
+        </div>
+    </body>
+</html>
